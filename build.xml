@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="htmllayout" default="release">
+	<description>
+		HTMLLayout - HTML-like layout manager for AWT and Swing (Java)
+        Vassilios Karakoidas (vassilios.karakoidas@gmail.com) - http://bkarak.wizhut.com/        
+	</description>
+	
+	<!-- Property Declaration -->
+	<property name="build" location="${basedir}/build"/>
+    <property name="lib" location="${basedir}/lib"/>
+	<property name="src" location="${basedir}/src"/>
+
+    <!-- libraries -->
+    <path id="libraries">
+        <fileset dir="lib">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+    
+	<!-- Compile and produce jar -->
+	<target name="release">
+		<echo>Compiling HTMLLayout ...</echo>
+		<mkdir dir="${build}" />
+		<javac srcdir="${src}" destdir="${build}" source="1.7" target="1.7" debug="off" optimize="on">
+            <classpath>
+                <path refid="libraries"/>
+            </classpath>
+        </javac>
+		<jar basedir="${build}" destfile="${basedir}/htmllayout.jar" manifest="Manifest" />
+	</target>
+	
+	<target name="clean">
+		<echo>Cleaning the mess ...</echo>
+		<delete file="${basedir}/htmllayout.jar" />
+		<delete>
+			<fileset dir="${build}" includes="**/*"/>
+		</delete>
+	</target>
+</project>
