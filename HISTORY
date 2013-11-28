@@ -1,0 +1,10 @@
+
+HtmlLayout was created February 1998 by Paul Buchheit. The first 
+version, unnamed, was released in March or April of 1998.
+
+Version 0.9 was released May 1999. The major difference between
+this version and the previous, unnamed, version is that it is
+licensed under the LGPL. This version also attempts to be smarter
+when there is not enough space available, although it is still 
+not yet perfect.
+
