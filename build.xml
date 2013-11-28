@@ -7,7 +7,7 @@
 	
 	<!-- Property Declaration -->
 	<property name="build" location="${basedir}/build"/>
-    <property name="lib" location="${basedir}/lib"/>
+    <!-- <property name="lib" location="${basedir}/lib"/> -->
 	<property name="src" location="${basedir}/src"/>
 
     <!-- libraries -->
@@ -22,11 +22,11 @@
 		<echo>Compiling HTMLLayout ...</echo>
 		<mkdir dir="${build}" />
 		<javac srcdir="${src}" destdir="${build}" source="1.7" target="1.7" debug="off" optimize="on">
-            <classpath>
+            <!--<classpath>
                 <path refid="libraries"/>
-            </classpath>
+            </classpath>-->
         </javac>
-		<jar basedir="${build}" destfile="${basedir}/htmllayout.jar" manifest="Manifest" />
+		<jar basedir="${build}" destfile="${basedir}/htmllayout.jar" />
 	</target>
 	
 	<target name="clean">
