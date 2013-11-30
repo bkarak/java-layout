@@ -123,7 +123,6 @@ public class HtmlLayout implements LayoutManager {
 			The "HTML" which specifies the layout, if this is not valid
 			table-html a BadTableHtmlException will be thrown.
 		@see org.htmllayout.exceptions.BadTableHtmlException
-		@see org.htmllayout.HtmlLayoutTest
 	*/
 	public HtmlLayout(String html) {
 		nameToCell = new Hashtable(30);
@@ -222,14 +221,14 @@ public class HtmlLayout implements LayoutManager {
 		}
 	}
 
-	Dimension layoutSize(Container parent, int whichSize) {
+	public Dimension layoutSize(Container parent, int whichSize) {
 		if(!labelsAdded)
 			addLabels(parent);
 
 		return layoutSize(parent.getInsets(), whichSize);
 	}
 
-	Dimension layoutSize(Insets insets, int whichSize) {
+	public Dimension layoutSize(Insets insets, int whichSize) {
 		int ypos[] = new int[rows + 1];
 		int xpos[] = new int[cols + 1];
 
@@ -273,7 +272,7 @@ public class HtmlLayout implements LayoutManager {
 		layout(top, bottom, left, right);
 	}
 
-	void layout(int top, int bottom, int left, int right) {
+	public void layout(int top, int bottom, int left, int right) {
 			
 		if(right - left > prefDim.width) {
 			if(horzAlign != MAX && horzAlign != FIT) {
@@ -455,7 +454,7 @@ public class HtmlLayout implements LayoutManager {
 			horzAlign + ", " + vertAlign;
 	}
 
-	void dump(int space) {
+	public void dump(int space) {
 		for(int i = 0; i < space; i++) System.err.print(' ');
 
 		System.err.println("HtmlLayout" + descString());

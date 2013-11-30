@@ -39,7 +39,7 @@ public class Cell {
 	HtmlLayout nested;
 	String labelText;
 
-	Component comp;
+	public Component comp;
 	int row, col;
 	int rowspan = 1, colspan = 1;
 	int hgap, vgap;
@@ -128,7 +128,7 @@ public class Cell {
 	}
 		
 
-	void firstXLayout(int xpos[], boolean wantX[]) {
+	public void firstXLayout(int xpos[], boolean wantX[]) {
 		addToXTable(xpos);
 		
 		if(hfill == HtmlLayout.MAX) {
@@ -137,7 +137,7 @@ public class Cell {
 		}
 	}
 
-	void firstYLayout(int ypos[], boolean wantY[]) {
+	public void firstYLayout(int ypos[], boolean wantY[]) {
 		addToYTable(ypos);
 		
 		if(vfill == HtmlLayout.MAX) {
@@ -147,7 +147,7 @@ public class Cell {
 	}
 
 
-	void updateSize(int whichSize) {
+	public void updateSize(int whichSize) {
 		Dimension d = getSize(whichSize);
 		reqwidth = d.width;
 		reqheight = d.height;
@@ -168,18 +168,18 @@ public class Cell {
 		}
 	}
 
-	void squeezeX(int xpos[], int touch[][], int count[], int limit[]) {
+	public void squeezeX(int xpos[], int touch[][], int count[], int limit[]) {
 		squeeze(xpos, touch, count, limit, col, col + colspan, 
 			reqwidth + (col == 0 ? 0 : hgap));
 		
 	}
 
-	void squeezeY(int ypos[], int touch[][], int count[], int limit[]) {
+	public void squeezeY(int ypos[], int touch[][], int count[], int limit[]) {
 		squeeze(ypos, touch, count, limit, row, row + rowspan, 
 			reqheight + (row == 0 ? 0 : vgap));
 	}
 
-	void addToXTable(int xpos[]) {
+	public void addToXTable(int xpos[]) {
 		int c = col + colspan;
 		int right = xpos[col] + reqwidth + (col == 0 ? 0 : hgap);
 
@@ -187,7 +187,7 @@ public class Cell {
 			xpos[c] = right;
 	}
 
-	void addToYTable(int ypos[]) {
+	public void addToYTable(int ypos[]) {
 		int r = row + rowspan;
 		int bottom = ypos[row] + reqheight + (row == 0 ? 0 : vgap);
 
@@ -237,7 +237,7 @@ public class Cell {
 				  " empty "))); 
 	}
 
-	void dump(int space) {
+	public void dump(int space) {
 		for(int i = 0; i < space; i++) System.err.print(' ');
 
 		System.err.println("Cell" + descString());
