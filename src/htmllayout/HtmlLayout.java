@@ -94,7 +94,7 @@ import java.awt.*;
 */
 public class HtmlLayout implements LayoutManager 
 {
-	static final String anonLabelName = new String("Anonymous label");
+	static final String anonLabelName = "Anonymous label";
 	boolean labelsAdded;
 
 	// x in xLayoutSize()
@@ -125,8 +125,7 @@ public class HtmlLayout implements LayoutManager
 		
 		@param html 
 			The "HTML" which specifies the layout, if this is not valid
-			table-html a BadTableHtmlException will be thrown.  Html can
-			be tested ahead of time using HtmlLayoutTest.
+			table-html a BadTableHtmlException will be thrown.
 		@see htmllayout.BadTableHtmlException
 		@see htmllayout.HtmlLayoutTest
 	*/
