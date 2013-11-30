@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="htmllayout" default="release">
+<project name="org.htmllayout" default="release">
 	<description>
 		HTMLLayout - HTML-like layout manager for AWT and Swing (Java)
         Vassilios Karakoidas (vassilios.karakoidas@gmail.com) - http://bkarak.wizhut.com/        

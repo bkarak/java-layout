@@ -22,11 +22,10 @@
 */
 
 
-package htmllayout;
+package org.htmllayout.parser;
 
 
-class Scanner
-{
+public class Scanner {
 	static final int LT=0, GT=1, EQ=3, STR=4, EOF=-1, ERROR=-2;
 
 	String currentString;
@@ -37,7 +36,7 @@ class Scanner
 	String source;
 	int pos, end;
 
-	Scanner(String source) {
+	public Scanner(String source) {
 		this.source = source;
 		end = source.length();
 	}

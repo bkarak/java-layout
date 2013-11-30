@@ -1,4 +1,4 @@
-htmllayout
+org.htmllayout
 ==========
 
 HtmlLayout - A superior Java LayoutManager
@@ -25,7 +25,7 @@ http://braindamage.org/HtmlLayout/
 
 If your are interested in receiving future HtmlLayout
 announcements please send an email to: 
-htmllayout-announce@braindamage.org with "ADD <myemail>"
+org.htmllayout-announce@braindamage.org with "ADD <myemail>"
 as the Subject line (as in "ADD paul@braindamage.org").
 
 Feedback, bug fixes, and contributions are welcomed, please

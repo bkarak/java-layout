@@ -22,7 +22,7 @@
 */
 
 
-package htmllayout;
+package org.htmllayout;
 
 import java.io.*;
 

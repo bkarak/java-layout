@@ -23,12 +23,12 @@
 
 
 
-package htmllayout;
+package org.htmllayout.exceptions;
 
 /** BadTableHtmlExceptions are thrown when an HtmlLayout is created 
   * with illegal table-html.
   *
-  * @see htmllayout.HtmlLayout
+  * @see org.htmllayout.HtmlLayout
   * @author Paul Buchheit
   */
 public class BadTableHtmlException extends IllegalArgumentException

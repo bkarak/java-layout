@@ -22,7 +22,11 @@
 */
 
 
-package htmllayout;
+package org.htmllayout;
+
+import org.htmllayout.parser.Cell;
+import org.htmllayout.parser.Scanner;
+import org.htmllayout.parser.TableParser;
 
 import java.util.Hashtable;
 import java.awt.*;
@@ -92,24 +96,16 @@ import java.awt.*;
 	* 
 	* @author Paul Buchheit
 */
-public class HtmlLayout implements LayoutManager 
-{
-	static final String anonLabelName = "Anonymous label";
+public class HtmlLayout implements LayoutManager {
+	public static final String anonLabelName = "Anonymous label";
 	boolean labelsAdded;
 
 	// x in xLayoutSize()
-	static final int MIN = 0, PREF = 1;
+	public static final int MIN = 0, PREF = 1;
 
 	// alignment 
-	static final int 
-		LEFT = 0, RIGHT = 1, 
-		CENTER = 2, FIT=3, MAX = 4,
-		TOP = 5, BOTTOM = 6; 
-
-	static final String ALIGNNAMES[] = {
-		"LEFT", "RIGHT", 
-		"CENTER", "FIT", "MAX",
-		"TOP", "BOTTOM"};
+	public static final int LEFT = 0, RIGHT = 1, CENTER = 2, FIT=3, MAX = 4, TOP = 5, BOTTOM = 6;
+	public static final String ALIGNNAMES[] = { "LEFT", "RIGHT",  "CENTER", "FIT", "MAX", "TOP", "BOTTOM"};
 
 	/* these tables are shared by the layout and all nested layouts */
 	Hashtable nameToCell;
@@ -126,8 +122,8 @@ public class HtmlLayout implements LayoutManager
 		@param html 
 			The "HTML" which specifies the layout, if this is not valid
 			table-html a BadTableHtmlException will be thrown.
-		@see htmllayout.BadTableHtmlException
-		@see htmllayout.HtmlLayoutTest
+		@see org.htmllayout.exceptions.BadTableHtmlException
+		@see org.htmllayout.HtmlLayoutTest
 	*/
 	public HtmlLayout(String html) {
 		nameToCell = new Hashtable(30);
@@ -137,7 +133,7 @@ public class HtmlLayout implements LayoutManager
 		addCellsToTable(nameToCell);
 	}
 
-	HtmlLayout(TableParser parent) {
+	public HtmlLayout(TableParser parent) {
 		parse(parent.in, false, parent);
 	}
 
@@ -419,7 +415,7 @@ public class HtmlLayout implements LayoutManager
 		}
 	}
 
-	static int calcTopOrLeft(int tol, int bor, int wid, int align)
+	public static int calcTopOrLeft(int tol, int bor, int wid, int align)
 	{
 		int newTol;
 
@@ -445,7 +441,7 @@ public class HtmlLayout implements LayoutManager
 		return newTol;
 	}
 
-	void addCellsToTable(Hashtable nToCell) {
+	public void addCellsToTable(Hashtable nToCell) {
 		for(int i = 0; i < cells.length; i++) {
 			cells[i].addToNameTable(nToCell);
 		}

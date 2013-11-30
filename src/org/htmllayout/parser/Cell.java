@@ -22,15 +22,16 @@
 */
 
 
-package htmllayout;
+package org.htmllayout.parser;
+
+import org.htmllayout.HtmlLayout;
+import org.htmllayout.exceptions.BadTableHtmlException;
 
 import java.util.Hashtable;
 import java.awt.*;
 
 
-
-class Cell
-{
+public class Cell {
 	int hfill = HtmlLayout.LEFT;
 	int vfill = HtmlLayout.CENTER;
 
@@ -51,11 +52,10 @@ class Cell
 		vpad = vp;
 	}
 
-	void addToNameTable(Hashtable nameToCell) {
+	public void addToNameTable(Hashtable nameToCell) {
 		if(name != null) {
 			if(nameToCell.put(name, this) != null) {
-				throw new BadTableHtmlException(
-					"Duplicate component name: " + name);
+				throw new BadTableHtmlException("Duplicate component name: " + name);
 			}
 		} else if(nested != null) {
 			nested.addCellsToTable(nameToCell);
@@ -64,7 +64,7 @@ class Cell
 
 	private int reqwidth, reqheight;
 
-	void addLabels(Container parent) {
+	public void addLabels(Container parent) {
 		if(labelText != null && comp == null) {
 			comp = new Label(labelText);
 			parent.add(comp, HtmlLayout.anonLabelName);
@@ -73,7 +73,7 @@ class Cell
 		}
 	}
 
-	void finalLayout(int xpos[], int ypos[]) {
+	public void finalLayout(int xpos[], int ypos[]) {
 		if(comp == null && nested == null)
 			return;
 

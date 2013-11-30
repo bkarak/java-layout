@@ -22,26 +22,27 @@
 */
 
 
-package htmllayout;
+package org.htmllayout.parser;
 
 
+import org.htmllayout.HtmlLayout;
+import org.htmllayout.exceptions.BadTableHtmlException;
 
-class TableParser
-{
-	Scanner in;
+public class TableParser {
+	public Scanner in;
 
-	int rows = -1, cols = -1;
-	int hgap, vgap;
-	int hpad, vpad;
-	int horz = HtmlLayout.MAX, vert = HtmlLayout.MAX;
-	Cell cells[][];
+	public int rows = -1, cols = -1;
+	public int hgap, vgap;
+	public int hpad, vpad;
+	public int horz = HtmlLayout.MAX, vert = HtmlLayout.MAX;
+	public Cell cells[][];
 
 	int curRow, curCol;
 	int gridcount;
-	int cellCount;
+	public int cellCount;
 	boolean taken[][];
 
-	TableParser(Scanner in, boolean eatTable, TableParser parent) {
+	public TableParser(Scanner in, boolean eatTable, TableParser parent) {
 		this.in = in;
 
 		if(eatTable) {
